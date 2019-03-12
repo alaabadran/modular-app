@@ -9,4 +9,6 @@ There is a strategy behind this to be explained later.
 Please edit the file `.gitmodules` and change it's modules included.
 
 ### To clone submodules
-Working on a Bash script to do this job.
+To download (clone) submodules, you need to run the following command:
+`python modules.py`
+And just wait for modules to be cloned.
