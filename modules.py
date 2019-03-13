@@ -27,8 +27,8 @@ for submodule in module_path :
 		git_branch = 'master'
 
 	print('Cloning/Updating Repo ' + git_url)
-	print(' ')
 	os.system('git clone ' + git_url + ' ' + submodule)
 	# Checkout to specified Branch or Tag after cloning or fetching
 	os.system('cd ' + submodule + ' && ' + 'git checkout ' + git_branch + ' && git fetch')
+	print(' ')
 
