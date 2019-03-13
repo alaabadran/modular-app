@@ -1,6 +1,16 @@
 import os
 from numpy import size
 
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    NORMAL = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
 f = open(".gitmodules", "r")
 
 content = f.read()
@@ -9,6 +19,9 @@ modules = content.split('[submodule')
 
 module_path = []
 module_url = []
+
+print('\033[93m' + 'This process will take couple of minutes')
+print('Please go get a coffee or do something else while this code is running')
 
 for module in modules :
 	if modules != '':
@@ -26,9 +39,12 @@ for submodule in module_path :
 		git_url = url[0]
 		git_branch = 'master'
 
+	print(' ' + bcolors.NORMAL)
 	print('Cloning/Updating Repo ' + git_url)
 	os.system('git clone ' + git_url + ' ' + submodule)
 	# Checkout to specified Branch or Tag after cloning or fetching
 	os.system('cd ' + submodule + ' && ' + 'git checkout ' + git_branch + ' && git fetch')
 	print(' ')
 
+
+print(bcolors.OKGREEN + ' ' + 'All Done')
