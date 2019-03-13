@@ -23,6 +23,7 @@ module_url = []
 print('\033[93m' + 'This process will take couple of minutes')
 print('Please go get a coffee or do something else while this code is running')
 
+# This loop is for reading the .gitmodules file and store the values into 2 arrays
 for module in modules :
 	if modules != '':
 		module_arr = module.split('\n')
@@ -30,6 +31,7 @@ for module in modules :
 			module_path.append(module_arr[1].split('=')[1])
 			module_url.append(module_arr[2].split('=')[1])
 
+# This loop is to clone/fetch each repo 
 for submodule in module_path :
 	url = module_url[module_path.index(submodule)].split('#')
 	try :
