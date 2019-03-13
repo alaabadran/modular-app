@@ -1,6 +1,9 @@
 [submodule "modules/modular-app-module1"]
-	path =modular-app-module1
+	path = modules/modular-app-module1
 	url = git@github.com:alaabadran/modular-app-module1.git
 [submodule "modules/jquery"]
 	path = modules/jquery
-	url = git@github.com:alaabadran/jquery.git
+	url = git@github.com:alaabadran/jquery.git#ajax-unit
+[submodule "modules/project"]
+	path = modules/project
+	url = git@github.com:alaabadran/project.git

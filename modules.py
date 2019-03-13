@@ -18,4 +18,17 @@ for module in modules :
 			module_url.append(module_arr[2].split('=')[1])
 
 for submodule in module_path :
-	os.system('git clone ' + module_url[module_path.index(submodule)] + ' ' + submodule)
+	url = module_url[module_path.index(submodule)].split('#')
+	try :
+		git_url = url[0]
+		git_branch = url[1]
+	except :
+		git_url = url[0]
+		git_branch = 'master'
+
+	print('Cloning/Updating Repo ' + git_url)
+	print(' ')
+	os.system('git clone ' + git_url + ' ' + submodule)
+	# Checkout to specified Branch or Tag after cloning or fetching
+	os.system('cd ' + submodule + ' && ' + 'git checkout ' + git_branch + ' && git fetch')
+
